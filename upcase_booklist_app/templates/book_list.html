@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curious Programmer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+    <body> 
+        <div class="page-header">
+            <p class="nav-item"><a href="{{ url_for('book_list') }}">Books</a></p>
+        </div>
+
+        <div class="page-title">         
+            <h1>Books</h1>
+        </div>
+
+        <div class="books-to-read">
+            {% for title, details in BOOKS.items() %} 
+            <ul>
+                <li class="book-links"><a href="{{ url_for('single_book', title=details['title']) }}">
+                    <img class="images" src="{{ details['image'] }}" alt="{{ details['title'] }}">
+                    <h3>{{ details['title'] }}<a href="{{ url_for('single_book', title=details['title']) }}"</h3>
+               </a></li>
+
+            </ul>           
+           
+            {% endfor %}
+        </div>
+
+    </body>
+</html>
+
