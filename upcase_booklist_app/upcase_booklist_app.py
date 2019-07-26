@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from data.data import books
+from upcase_booklist_app.data.books import books
 
 app = Flask(__name__)
 
@@ -20,6 +20,7 @@ def book_list():
 @app.route("/books/<book_id>")
 def single_book(book_id):
     """Show details for a specific book."""
+    book_id = int(book_id)
     return render_template("single_book.html", book=books[book_id])
 
 
