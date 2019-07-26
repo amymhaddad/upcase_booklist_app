@@ -37,6 +37,21 @@
 }
 
 
+.footer {
+    background: #990E16;
+    padding: 3em 1.618em;
+    width: 100%;  
+    position: absolute;
+}
+
+.footer-index {
+    background: #990E16;
+    padding: 3em 1.618em;
+    width: 100%;  
+    bottom: 0;
+    position: absolute;
+}
+
 
 /*authors*/
 .names a{
