@@ -11,14 +11,21 @@
     display: inline-block;
 }
 
-.nav-item a {
+.page-header ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.page-header-link a{
+    display: inline-block;
     font-size: 25px;
     font-weight: bold;
     color:white;
     text-decoration: none;
 }
 
-.nav-item a:hover {
+
+.page-header-link a:hover {
     text-decoration: underline;
     color: white;
 }
@@ -26,6 +33,22 @@
 .page-title {
     padding: 20px;
 }
+
+
+
+/*authors*/
+.names a{
+    font-size: 25px;
+    color: #990E16;
+    text-decoration: none; 
+}
+
+.names a:hover {
+    color: #990E16;
+    text-decoration: underline;
+}
+
+
 
 /*books.html */
 
@@ -47,6 +70,8 @@
     color: #990E16;
     text-decoration: underline;
 }
+
+
 
 /*single_book.html */
 .title {
@@ -71,14 +96,3 @@
     padding: 10px;
 }
 
-/*authors*/
-.names a{
-    font-size: 25px;
-    color: #990E16;
-    text-decoration: none; 
-}
-
-.names a:hover {
-    color: #990E16;
-    text-decoration: underline;
-}

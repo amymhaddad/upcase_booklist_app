@@ -7,14 +7,13 @@
     </head>
 
     <body>
+        <nav class="page-header">
+            <ul>
+                <li class="page-header-link"><a href="{{ url_for('book_list') }}">Books</a></li>
+                <li class="page-header-link"><a href="{{ url_for('authors') }}">Authors</a></li>
+            </ul>
+        </nav>
 
-        <div class="page-header">
-            <p class="nav-item">
-                <a href="{{ url_for('book_list') }}">Books</a> 
-                <a href="{{ url_for('authors') }}">Authors</a>
-            </p>
-
-        </div>
     
         <p>Content holder for image</p>
       
