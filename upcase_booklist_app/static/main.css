@@ -69,10 +69,18 @@
 
 /*books.html */
 
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: row wrap;    
+}
+
 .books {
     margin: 0;
     padding: 0;
     list-style: none;
+    border-bottom: 1px solid black;
 
 }
 
@@ -86,6 +94,10 @@
 .book-links a:hover {
     color: #990E16;
     text-decoration: underline;
+}
+
+.images {
+    margin: 20px;
 }
 
 

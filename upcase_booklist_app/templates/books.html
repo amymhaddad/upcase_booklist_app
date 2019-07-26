@@ -18,8 +18,12 @@
             <h1 class="page-title">Books</h1>
         </div>  
 
-        <div>
-            {% for book_id, details in books.items() %} 
+    
+        <div class="column">
+            
+           
+            {% for book_id, details in books.items() %}
+            
             <ul class="books">
                 <li><a href="{{ url_for('single_book', book_id=book_id) }}">
                     <img class="images" src="{{ details['image'] }}" alt="{{ details['title'] }}">
@@ -27,6 +31,7 @@
                </a></li>
             </ul>           
             {% endfor %}
+           
         </div>
 
         <div class="footer"></div>
