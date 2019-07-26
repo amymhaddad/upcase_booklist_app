@@ -19,9 +19,9 @@
         </div>
 
         <div>
-            {% for book, details in books.items() %}
+            {% for book_id, details in books.items() %}
                 <p>
-                    <a href="{{ url_for('single_book', book_id=book) }}">
+                    <a href="{{ url_for('single_book', book_id=book_id) }}">
                     <h2 class="names">{{ details['author'] }}</h2>
                     <img src="{{ details['image'] }}" alt="{{ details['title'] }}">
                 </a></p>
