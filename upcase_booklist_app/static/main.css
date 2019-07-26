@@ -69,7 +69,6 @@
 
 /*books.html */
 
-
 .column {
     display: flex;
     flex-direction: column;
@@ -81,7 +80,8 @@
     padding: 0;
     list-style: none;
     border-bottom: 1px solid black;
-
+    padding: 20px;
+    margin:10px;
 }
 
 .book-links a {
@@ -96,10 +96,10 @@
     text-decoration: underline;
 }
 
-.images {
-    margin: 20px;
+.text {
+    color: black; 
+    font-size: 16px; 
 }
-
 
 
 /*single_book.html */
@@ -113,10 +113,7 @@
     color: #990E16;
 }
 
-.text {
-    color: black; 
-    font-size: 16px; 
-}
+
 
 .box {
     box-sizing: border-box;

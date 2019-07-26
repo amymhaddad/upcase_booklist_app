@@ -26,9 +26,10 @@
             
             <ul class="books">
                 <li><a href="{{ url_for('single_book', book_id=book_id) }}">
-                    <img class="images" src="{{ details['image'] }}" alt="{{ details['title'] }}">
+                    <img class="book-links" src="{{ details['image'] }}" alt="{{ details['title'] }}">
                     <h3 class="book-links">{{ details['title'] }}<a href="{{ url_for('single_book', book_id=book_id) }}"</h3>
                </a></li>
+               <li><p class="text">{{ details['summary'] }}</p></li>
             </ul>           
             {% endfor %}
            
