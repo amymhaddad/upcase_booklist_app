@@ -8,22 +8,24 @@
     background: #990E16;
     padding: 1.5em;
     width: 100%;
-    display: inline-block;
+
 }
 
 .page-header ul {
-    list-style-type: none;
+    
     padding-left: 0;
 }
 
-.page-header-link a{
+.page-header-link {
     display: inline-block;
-    font-size: 25px;
+}
+
+.page-header-link a{
+    font-size: 20px;
     font-weight: bold;
     color:white;
     text-decoration: none;
 }
-
 
 .page-header-link a:hover {
     text-decoration: underline;
