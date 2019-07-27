@@ -17,25 +17,15 @@
                 </ul>
             </nav>
 
-        <div class='box'>
-            
-            {% for category, details in book.items() %}
-
-            {% if category=='title' %}
-            <h2 class="title">{{ book[category] }}</h2>
-
-            {% elif category=='author' %}
-            <h4 class="author">{{ book[category] }}</h4>
+        <div class='container'>
            
-            {% elif category != 'image' %}
-            <p class="text">{{ book[category] }}</p>
-            
-            {% else %}
-            <img class="images" src="{{ book['image'] }}" alt="{{ book['title'] }}">
-            
-           
-            {% endif %}
-            {% endfor %}
+            <ul class='contents-container'>
+                <li class="item image"><img src="{{ book['image'] }}" alt="{{ book['title'] }}"></li> 
+                <li class="item"><h2>{{ book['title'] }}</h2></li>
+                <li class="item"><h2>{{ book['author'] }}</h2></li>
+                <li class="item"><h2>{{ book['summary'] }}</h2></li>
+
+        </ul>
         </div>
     
     </body>
