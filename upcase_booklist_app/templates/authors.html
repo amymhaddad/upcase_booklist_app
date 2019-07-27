@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
+
     <body>
         <nav class="page-header">
             <ul>
@@ -18,17 +19,20 @@
             <h1>Authors</h1>
         </div>
 
-        <div>
+        <div class="column">
             {% for book_id, details in books.items() %}
-                <p>
-                    <a href="{{ url_for('single_book', book_id=book_id) }}">
-                    <h2 class="names">{{ details['author'] }}</h2>
-                    <img src="{{ details['image'] }}" alt="{{ details['title'] }}">
-                </a></p>
+            
+            <ul class="authors">
+                <li><a href="{{ url_for('single_book', book_id=book_id) }}">
+                    <h2 class="author-name">{{ details['author'] }}</h2>
+                    <img class="author-name" src="{{ details['image'] }}" alt="{{ details['title'] }}">
+                   
+                </a></li>
+            </ul>
             {% endfor %}
+            
         </div>
-
-         <div class="footer"></div>
+        <div class="footer"></div>
        
     </body>
 </html>

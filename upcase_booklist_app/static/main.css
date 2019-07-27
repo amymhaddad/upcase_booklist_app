@@ -53,38 +53,40 @@
 }
 
 
-/*authors*/
-.names a{
-    font-size: 25px;
-    color: #990E16;
-    text-decoration: none; 
-}
-
-.names a:hover {
-    color: #990E16;
-    text-decoration: underline;
-}
-
-
-
-/*books.html */
-
+/*authors and books have the same flexbox setup*/
 .column {
     display: flex;
     flex-direction: column;
     flex-wrap: row wrap;    
 }
 
-.books {
+
+.authors .books {
     margin: 0;
     padding: 0;
     list-style: none;
     border-bottom: 1px solid black;
     padding: 20px;
     margin:10px;
+ 
+    
 }
 
-.book-links a {
+.author-name .a {
+    font-size: 25px;
+    font-weight: bold;
+    color: #990E16;
+    text-decoration: none; 
+}
+
+.author-name a:hover {
+    color: #990E16;
+    text-decoration: underline;
+}
+
+/*books.html */
+
+.book-links .a {
     font-size: 25px;
     font-weight: bold;
     color: #990E16;
