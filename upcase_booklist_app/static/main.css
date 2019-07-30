@@ -42,72 +42,64 @@
 
 
 
-/*books.html */
-
+/*books.html */ 
 .books {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    border-bottom: 1px solid black;
     align-items: flex-start;
-
 }
 
-.book-links {
+.book-link-placement {
+    padding-left: 2em;
+    padding:5px;
+}
+
+.book-link-placement a{
+    color: #990E16;
+    text-decoration: none;
     font-size: 25px;
     font-weight: bold;
-    color: #990E16;
 
 }
 
-.book-links a{
-    text-decoration: none; 
-}
-
-.book-links a:hover {
+.book-link-placement a:hover{
     color: #990E16;
     text-decoration: underline;
 }
 
-p {
-color: black; 
-font-size: 18 px; 
+.book-description {
+    flex-basis: 50%;
+    align-self: center;
+    font-size: 16px;
 }
-
-
 
 /*authors and books have the same flexbox setup*/
-/* .column {
+.authors {
+    list-style-type: none;
     display: flex;
-    flex-direction: column;
-    flex-wrap: row wrap;    
-}
-
-
-.authors .books {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    flex-direction: row;
     border-bottom: 1px solid black;
-    padding: 20px;
-    margin:10px;
- 
-    
+    justify-content: flex-start;
+    align-items: stretch;
 }
 
-.author-name .a {
-    font-size: 25px;
-    font-weight: bold;
+.book {
+    order:3; 
+}
+
+.author-name a{
     color: #990E16;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
-.author-name a:hover {
-    color: #990E16;
-    text-decoration: underline;
-}
 
- */
+
+
+
+
+
 
 
 /*single_book.html */

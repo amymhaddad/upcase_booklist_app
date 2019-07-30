@@ -23,9 +23,9 @@
             {% for book_id, details in books.items() %}
             
             <ul class="books">
-                <li class="book-links"><a href="{{ url_for('book', book_id=book_id) }}"><img src="{{ details['image'] }}" alt="{{ details['title'] }}"></a></li>
-                <li class="book-links"><a href="{{ url_for('book', book_id=book_id) }}"><h3>{{ details['title'] }}</h3></a></li>
-                <li><p>{{ details['summary'] }}</p></li>
+                <li class="book-link-placement"><a href="{{ url_for('book', book_id=book_id) }}"><img src="{{ details['image'] }}" alt="{{ details['title'] }}"></a></li>
+                <li class="book-link-placement"><a href="{{ url_for('book', book_id=book_id) }}">{{ details['title'] }}</a></li>
+                <li class="book-description">{{ details['summary'] }}</li>
             </ul>           
             {% endfor %}
            
@@ -35,14 +35,3 @@
 
     </body>
 </html>
-<!-- 
-
-<body>
-        <ul class="page-header">
-            <li class="header-items"><a href="{{ url_for('book_list') }}">Books</a></li>
-            <li class="header-items"><a href="{{ url_for('authors') }}">Authors</a></li>
-        </ul>
-
-    </body>
-</html>
- -->
