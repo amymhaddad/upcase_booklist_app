@@ -17,11 +17,10 @@ def book_list():
     return render_template("books.html", books=books)
 
 
-@app.route("/books/<book_id>")
+@app.route("/books/<int:book_id>")
 def book(book_id):
     """Show details for a specific book."""
-    book_id = int(book_id)
-    return render_template("book.html", book=books[book_id])
+    return render_template("book.html", book= books[book_id])
 
 
 @app.route("/authors")

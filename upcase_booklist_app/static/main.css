@@ -1,42 +1,47 @@
-* {
+/* * {
     box-sizing: border-box;
-   }
+   } */
 
 
 /*index.html // all pages use these attributes */
 .page-header {
-    background: #990E16;
-    padding: 1.5em;
-    width: 100%;
-
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    background-color: #990E16;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100px;
 }
 
-.page-header ul {
-    
-    padding-left: 0;
+.header-items {
+    padding: 5px;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    flex-basis: 2%;
 }
 
-.page-header-link {
-    display: inline-block;
-}
-
-.page-header-link a{
+/* 
+.header-items a{
     font-size: 20px;
     font-weight: bold;
     color:white;
     text-decoration: none;
 }
 
-.page-header-link a:hover {
+.header-items a:hover {
     text-decoration: underline;
     color: white;
 }
 
 .page-title {
     padding: 20px;
-}
+} */
 
-
+/* 
 .footer {
     background: #990E16;
     padding: 3em 1.618em;
@@ -50,7 +55,7 @@
     width: 100%;  
     bottom: 0;
     position: absolute;
-}
+} */
 
 
 /*authors and books have the same flexbox setup*/
