@@ -98,7 +98,7 @@
     text-decoration: underline;
 }
 
-.text {
+p {
     color: black; 
     font-size: 18 px; 
 }
@@ -130,10 +130,7 @@
     font-size: 20px;
 }
 
-.text {
-    color: blac8 px;
-    
-}
+
 
 .image {
     margin:30px;
