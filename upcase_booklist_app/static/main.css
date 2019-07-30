@@ -24,7 +24,6 @@
     flex-basis: 2%;
 }
 
-/* 
 .header-items a{
     font-size: 20px;
     font-weight: bold;
@@ -39,27 +38,46 @@
 
 .page-title {
     padding: 20px;
-} */
+} 
 
-/* 
-.footer {
-    background: #990E16;
-    padding: 3em 1.618em;
-    width: 100%;  
-    position: absolute;
+
+
+/*books.html */
+
+.books {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
 }
 
-.footer-index {
-    background: #990E16;
-    padding: 3em 1.618em;
-    width: 100%;  
-    bottom: 0;
-    position: absolute;
-} */
+.book-links {
+    font-size: 25px;
+    font-weight: bold;
+    color: #990E16;
+
+}
+
+.book-links a{
+    text-decoration: none; 
+}
+
+.book-links a:hover {
+    color: #990E16;
+    text-decoration: underline;
+}
+
+p {
+color: black; 
+font-size: 18 px; 
+}
+
 
 
 /*authors and books have the same flexbox setup*/
-.column {
+/* .column {
     display: flex;
     flex-direction: column;
     flex-wrap: row wrap;    
@@ -89,24 +107,7 @@
     text-decoration: underline;
 }
 
-/*books.html */
-
-.book-links .a {
-    font-size: 25px;
-    font-weight: bold;
-    color: #990E16;
-    text-decoration: none; 
-}
-
-.book-links a:hover {
-    color: #990E16;
-    text-decoration: underline;
-}
-
-p {
-    color: black; 
-    font-size: 18 px; 
-}
+ */
 
 
 /*single_book.html */
