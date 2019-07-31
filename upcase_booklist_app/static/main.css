@@ -7,13 +7,10 @@
 .page-header {
     padding: 0;
     margin: 0;
-    list-style-type: none;
-    background-color: #990E16;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    height: 100px;
+    background-color: #990E16;
 }
+
 
 .header-items {
     padding: 5px;
@@ -21,7 +18,6 @@
     font-size: 20px;
     font-weight: bold;
     color: white;
-    flex-basis: 2%;
 }
 
 .header-items a{
@@ -41,51 +37,52 @@
 } 
 
 
-
 /*books.html */ 
 .books {
-    list-style-type: none;
     display: flex;
-    flex-direction: row;
     border-bottom: 1px solid black;
-    align-items: flex-start;
 }
 
-.book-link-placement {
+.book-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.book-detail-spacing {
     padding-left: 2em;
     padding:5px;
 }
 
-.book-link-placement a{
+.book-title a{ 
     color: #990E16;
     text-decoration: none;
     font-size: 25px;
     font-weight: bold;
-
 }
 
-.book-link-placement a:hover{
+.book-title a:hover{
     color: #990E16;
     text-decoration: underline;
 }
 
 .book-description {
-    flex-basis: 50%;
-    align-self: center;
     font-size: 16px;
 }
+
+
 
 /*authors and books have the same flexbox setup*/
 .authors {
     list-style-type: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     border-bottom: 1px solid black;
 }
 
 .book {
-    flex-basis: 100%; 
+    /* flex-basis: 100%;  */
     padding-bottom: 10px;
 }
 .author-name a{
