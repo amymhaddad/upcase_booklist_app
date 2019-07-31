@@ -10,6 +10,19 @@
         <nav class="page-header">
             <div class="header-items"><a href="{{ url_for('book_list') }}">Books</a></div>
             <div class="header-items"><a href="{{ url_for('authors') }}">Authors</a></div>
+            <div class="header-items"><a href="{{ url_for('lists') }}">Lists</a></div>
         </nav>
+
+        <div>
+            <div class="box">
+                <p class="homepage-title">Curated Bookshelf for Pythonistas</p>
+                <p class="homepage-summary">A collection of Python books, from novice to expert</p>
+                <button class="button"><a href="{{ url_for('lists') }}">Start Exploring</a></button>
+            </div>
+
+           
+        </div>
+
     </body>
 </html>
+

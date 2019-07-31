@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curious Programmer | Categories</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <nav class="page-header">
+           <div class="header-items"><a href="{{ url_for('book_list') }}">Books</a></div>
+           <div class="header-items"><a href="{{ url_for('authors') }}">Authors</a></div>
+           <div class="header-items"><a href="{{ url_for('lists') }}">Lists</a></div>
+       </nav>
+
+    <div>
+       
+        <h1>{{ category_title }}</h1>
+    <div>
+
+    <div>
+        {% for book in category %}
+        
+        <div class="single-category">
+            <div class="book-image"><a href="{{ url_for('book', book_id=book['id']) }}"><img src="{{ book['image'] }}" alt="{{ book['title'] }}"></a></div>
+
+            <div class="category-details">
+                <h1 class="book-title">{{ book['title'] }}</h1>
+                <p class="book-author"><a href="{{ url_for('authors') }} ">By: {{ book['author'] }}</a></p>
+                <p class="book-summary">{{ book['summary'] }}</p>     
+           </div>
+          
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="footer"></div>
+</html>
+

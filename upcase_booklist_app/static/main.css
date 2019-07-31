@@ -1,7 +1,6 @@
-/* * {
+* {
     box-sizing: border-box;
-   } */
-
+}
 
 /*index.html // all pages use these attributes */
 .page-header {
@@ -36,6 +35,34 @@
     padding: 20px;
 } 
 
+.box {
+    display: flex;
+    flex-direction: column;
+    background-color: #990E16;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+    padding: 100px;
+}
+
+.homepage-title {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.homepage-summary {
+    color: white;
+    font-size: 20px;
+}
+
+.button a{
+    text-decoration: none;
+    color: gray;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+}
 
 /*books.html */ 
 .books {
@@ -136,3 +163,73 @@
 .space {
     margin: 20px;
 }
+
+
+/* category */
+.single-category {
+    display: flex;
+    border-bottom: 1px solid black;
+    margin: 50px;
+
+}
+
+.book-image {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.category-details {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    padding-left: 1em;
+}
+
+.book-title {
+    color: #990E16;    
+
+}
+
+.book-author {
+    color: #990E16;    
+    font-size: 20px;
+}
+
+.book-author a{
+    color: #990E16;    
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.book-author a:hover{
+    text-decoration: underline;
+}
+
+.book-summary {
+    font-size: 16px;
+}
+
+
+/* lists.html */
+
+.categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.category-title a{
+    color: #990E16; 
+    text-decoration: none;
+}
+
+.category-title a:hover {
+    color: #990E16; 
+    text-decoration: underline;
+}
+
