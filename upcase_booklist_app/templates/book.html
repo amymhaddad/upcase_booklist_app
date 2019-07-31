@@ -22,33 +22,21 @@
         
    
         <div>
-            <div class="highlight-single-book">
+            <div class="single-book">
+
+                <!-- One parent -->
+                <div class="single-book-image"><img src="{{ book['image'] }}" alt="{{ book['title'] }}"></div>
             
-            <div class="display">
-                <div class="single-book-contents"><img src="{{ book['image'] }}" alt="{{ book['title'] }}"></div>
-                <div class="single-book-contents"><h2>{{ book['title'] }}</h2></div>
-
+                <!-- Second parent with book details -->
+                <div class="display-single-book">
+                    <div class="space single-book-title">{{ book['title'] }}</div>
+                    <div class="space single-book-author"><br>By: {{ book['author'] }}</div>
+                    <div class="space single-book-summary"><br>{{ book['summary'] }}</div>
+                </div>
             </div>
-            </div>
-
         </div>
     
     </body>
 </html>
 
 
-<!-- 
-
-<div class='container'>
-
-            
-           
-       
-        <ul class='contents-container'>
-            <li class="item image"><img src="{{ book['image'] }}" alt="{{ book['title'] }}"></li> 
-            <li class="item title"><h2>{{ book['title'] }}</h2></li>
-            <li class="item author">By: {{ book['author'] }}</li>
-            <li class="item text"><br>{{ book['summary'] }}</li>
-
-    </ul>
-    </div> -->
