@@ -74,7 +74,6 @@
 
 
 /* authors.html */
-
 .author {
     display: flex;
     flex-direction: column;
@@ -82,7 +81,7 @@
     border-bottom: 1px solid black;
 }
 
-/* This is the same styling as book-title in books css */
+/* name a and name a:hover are the same styling as book-title in books css */
 .name a{
     color: #990E16;
     text-decoration: none;
@@ -103,7 +102,21 @@
 
 /*single_book.html */
 
-.container {
+.highlight-single-book {
+    display: flex;
+    border: black solid 3px;
+    margin: 20px;
+
+}
+
+.display {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+}
+
+
+/* .container {
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
@@ -134,4 +147,4 @@
     padding-right: 10px;
     padding-left: 40px;
 
-}
+} */
