@@ -54,6 +54,7 @@
     padding:5px;
 }
 
+/* This is the same styling as name in authors csss */
 .book-title a{ 
     color: #990E16;
     text-decoration: none;
@@ -72,36 +73,31 @@
 
 
 
-/*authors and books have the same flexbox setup*/
-.authors {
-    list-style-type: none;
+/* authors.html */
+
+.author {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     border-bottom: 1px solid black;
 }
 
-.book {
-    /* flex-basis: 100%;  */
-    padding-bottom: 10px;
-}
-.author-name a{
+/* This is the same styling as book-title in books css */
+.name a{
     color: #990E16;
     text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
 }
 
-.author-name a:hover{
+.name a:hover {
     color: #990E16;
     text-decoration: underline;
-
 }
 
-
-
-
-
-
-
+.book {
+    padding-bottom: 10px;
+}
 
 
 

@@ -8,11 +8,9 @@
 
 
     <body>
-        <nav>
-            <ul class="page-header">
-                <li class="header-items"><a href="{{ url_for('book_list') }}">Books</a></li>
-                <li class="header-items"><a href="{{ url_for('authors') }}">Authors</a></li>
-            </ul>
+        <nav class="page-header">
+            <div class="header-items"><a href="{{ url_for('book_list') }}">Books</a></div>
+            <div class="header-items"><a href="{{ url_for('authors') }}">Authors</a></div>
         </nav>
 
         <div>
@@ -21,16 +19,14 @@
 
         <div>
             {% for book_id, details in books.items() %}
-            
-            <ul class="authors">
 
-                <li class="author-name"><a href="{{ url_for('book', book_id=book_id) }}"><h2>{{ details['author'] }}</h2></a></li>
-                <li class="book"><a href="{{ url_for('book', book_id=book_id) }}"><img src="{{ details['image'] }}" alt="{{ details['title'] }}"></a></li>
-    
-            </ul>
-            {% endfor %}
-            
+            <div class="author">
+                <div class="name"><a href="{{ url_for('book', book_id=book_id) }}">{{ details['author'] }}</a></div>
+                <div class="book"><a href="{{ url_for('book', book_id=book_id) }}"><img src="{{ details['image'] }}" alt="{{ details['title'] }}"></a></div>
+            </div>    
         </div>
+        {% endfor %}     
+  
         <div class="footer"></div>
        
     </body>
