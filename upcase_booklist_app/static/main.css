@@ -1,72 +1,138 @@
-* {
+/* * {
     box-sizing: border-box;
-   }
+   } */
 
 
 /*index.html // all pages use these attributes */
 .page-header {
-    background: #990E16;
-    padding: 1.5em;
-    width: 100%;
-    display: inline-block;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #990E16;
 }
 
-.nav-item a {
-    font-size: 25px;
+
+.header-items {
+    padding: 5px;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.header-items a{
+    font-size: 20px;
     font-weight: bold;
     color:white;
     text-decoration: none;
 }
 
-.nav-item a:hover {
+.header-items a:hover {
     text-decoration: underline;
     color: white;
 }
 
 .page-title {
     padding: 20px;
-}
+} 
 
-/*books.html */
 
+/*books.html */ 
 .books {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
+    display: flex;
+    border-bottom: 1px solid black;
 }
 
-.book-links a {
+.book-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.book-detail-spacing {
+    padding-left: 2em;
+    padding:5px;
+}
+
+.book-title a{ 
+    color: #990E16;
+    text-decoration: none;
     font-size: 25px;
     font-weight: bold;
-    color: #990E16;
-    text-decoration: none; 
 }
 
-.book-links a:hover {
+.book-title a:hover{
     color: #990E16;
     text-decoration: underline;
 }
 
-/*single_book.html */
-.title {
-    font-weight: bold;
-    color: #990E16;
+.book-description {
+    font-size: 16px;
 }
 
+
+
+/* authors.html */
 .author {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-bottom: 1px solid black;
+}
+
+.name a{
+    color: #990E16;
+    text-decoration: none;
+    font-size: 25px;
     font-weight: bold;
+}
+
+.name a:hover {
+    color: #990E16;
+    text-decoration: underline;
+}
+
+.book {
+    padding-bottom: 10px;
+}
+
+
+
+/*single_book.html */
+
+.single-book {
+    display: flex;
+    background-color: #ddd;
+    margin: 60px;
+    padding: 100px;
+
+}
+
+.display-single-book-contents {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 2em;
+    padding:5px;
+}
+
+.single-book-title {
+    color: #990E16;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.single-book-author {
+    font-size: 20px;
     color: #990E16;
 }
 
-.text {
-    color: black; 
-    font-size: 14px; 
+.single-book-summary {
+    font-size: 16px;
 }
 
-.box {
-    box-sizing: border-box;
-    width: 50%;
-    border: solid black 5px;
-    padding: 5px;
+.space {
+    margin: 20px;
 }
