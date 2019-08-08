@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for
 from upcase_booklist_app.data.books import books
 from upcase_booklist_app.data.categories import categories
+from upcase_booklist_app.data.author import authors as authors_data
 
 
 app = Flask(__name__)
@@ -22,13 +23,14 @@ def book_list():
 @app.route("/books/<int:book_id>")
 def book(book_id):
     """Show details for a specific book."""
+
     return render_template("book.html", book=books[book_id])
 
 
 @app.route("/authors")
 def authors():
     """Show the list of authors and the books they've written"""
-    return render_template("authors.html", books=books)
+    return render_template("authors.html", authors=authors_data)
 
 
 @app.route("/lists")
@@ -52,6 +54,18 @@ def category(category_id):
     return render_template(
         "category.html", category=selected_category, category_title=category_title
     )
+
+
+@app.route("/authors/<int:author_id>")
+def author(author_id):
+    """Display a page about an author"""
+
+    author_object = None
+    for author in authors_data:
+        if author["author_id"] == author_id:
+            author_object = author
+
+    return render_template("author.html", author_object=author_object)
 
 
 if __name__ == "__main__":
