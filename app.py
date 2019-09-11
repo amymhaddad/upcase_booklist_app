@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for
 from upcase_booklist_app.data.books import books
 from upcase_booklist_app.data.categories import categories
 from upcase_booklist_app.data.author import authors as authors_data
+from upcase_booklist_app.data.users import users as users_info
 
 app = Flask(__name__)
 
@@ -43,15 +44,17 @@ def lists():
 def category(category_id):
     """Direct user to page about a specific category"""
 
-    books_asscoiated_with_selected_category = None
+    books_associated_with_selected_category = None
     category_title = None
     for category in categories:
         if category["category_id"] == category_id:
-            books_asscoiated_with_selected_category = category["books"]
+            books_associated_with_selected_category = category["books"]
             category_title = category["category"]
 
     return render_template(
-        "category.html", category=selected_category, category_title=category_title
+        "category.html",
+        category=books_associated_with_selected_category,
+        category_title=category_title,
     )
 
 
@@ -65,6 +68,22 @@ def author(author_id):
             author_object = author
 
     return render_template("author.html", author_object=author_object)
+
+
+@app.route("/users")
+def users():
+    """Show all of the users and basic user details"""
+    return render_template("users.html", users=users_info)
+
+
+@app.route("/users/<int:id>")
+def user(id):
+    """Display user details"""
+
+    user_object = None
+    user_object = list(filter(lambda x: x["id"] == id, users_info))
+
+    return render_template("user.html", user_object=user_object)
 
 
 if __name__ == "__main__":
