@@ -3,7 +3,6 @@ from upcase_booklist_app.data.books import books
 from upcase_booklist_app.data.categories import categories
 from upcase_booklist_app.data.author import authors as authors_data
 
-
 app = Flask(__name__)
 
 
