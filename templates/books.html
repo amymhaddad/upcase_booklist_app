@@ -18,25 +18,55 @@
         <div>         
             <h1 class="page-title">Books</h1>
         </div>  
-  
-       <div>
-            {% for book_id, details in books.items() %}
-           <div class="books">
 
-                <!-- One parent -->
-                <div class="book-image"><a href="{{ url_for('book', book_id=book_id) }}"><img src="{{ details['image'] }}" alt="{{ details['title'] }}"></a></div>
+        <div>
+            <form action="books" method="POST">
+                <select name="genre" id="genre" value="">
+                    <label for="genre">Book Genre</label>
+                    <option value=""></option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+                <button class="filter-button">Filter</button>
+            </form>
+        </div>
+        
+    
+        <div class="sort-books">
+            <a href="books?sort=title"><h3>By title | </h3>
+            <a href="books?sort=publication_year"><h3>By newest</h3>
+            </a>
+        </div>
+               
 
-                <!-- Second parent with 2 children -->
-                <div class="book-details">
-                    <div class="book-detail-spacing book-title"><a href="{{ url_for('book', book_id=book_id) }}">{{ details['title'] }}</a></div>
-                    <div class="book-detail-spacing book-description">{{ details['summary'] }}</div>
-                </div>
+        <div class="sort-books">
+            <div class="current">
+                <p>Current
+                    <a href="books?page=2">Page 2</a>
+                    <a href="books?page=3">Page 3</a>
+                    <a href="books?page=4">Page 4</a>
+                </p>
             </div>
         </div>
-        {% endfor %}
-        
-        <div class="footer"></div>
+    
 
-    </body>
-</html>
-
+        <div> 
+            {% for book in books %}
+                <div class="books-container">
+                    <div class="books">    
+                        <a href="{{ url_for('book', book_id=book.id) }}">
+                            <h1>{{ book.title }}</h1>   
+                        </a>
+                        
+                        <a href="{{ url_for('book', book_id=book.id) }}">
+                            <img src="{{ book.image_url }}">
+                        </a>
+                    </div>
+                
+            
+                    </div>
+                    {% endfor %}         
+            </div>
+        </body>
+    </html>

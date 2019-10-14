@@ -1,38 +1,38 @@
+from faker import Faker
+
+fake = Faker()
+import random
+
 import sys
-from database import Base, db_session
-from models.book import Book
+from upcase_booklist_app.database import Base, db_session
+from upcase_booklist_app.models.book import Book
 
 session = db_session()
 
 
-session.add_all(
-    [
-        Book(
-            title="Python Crash Course",
-            summary="A hands-on introduction to programming with Python.",
-            image_url="/static/img/python_crash_course.jpeg",
-        ),
-        Book(
-            title="Grokking Algorithms",
-            summary="Learn how to apply common algorithms to practical programming problems.",
-            image_url="/static/img/grokking_algorithms.jpeg",
-        ),
-        Book(
-            title="The Quick Python Book",
-            summary="A comprehensive guide to Python.",
-            image_url="/static/img/the_quick_python_book.jpeg",
-        ),
-        Book(
-            title="Irresistible APIs",
-            summary="Learn the process to create APIs",
-            image_url="/static/img/irresistible_APIs.jpeg",
-        ),
-        Book(
-            title="Introduction to Computer Science and Programming Using Python",
-            summary="An introduction to programming and computational problem solving, using Python.",
-            image_url="/static/img/intro_to_computer_science.jpg",
-        ),
-    ]
-)
+genres = ["Beginner", "Intermediate", "Advanced"]
+
+images = [
+    "/static/img/python_crash_course.jpeg",
+    "/static/img/grokking_algorithms.jpeg",
+    "/static/img/the_quick_python_book.jpeg",
+    "/static/img/irresistible_APIs.jpeg",
+    "/static/img/intro_to_computer_science.jpg",
+]
+
+
+books = []
+
+for _ in range(100):
+    book = Book(
+        title=fake.company(),
+        summary=fake.text(max_nb_chars=200, ext_word_list=None),
+        image_url=random.choice(images),
+        genre=random.choice(genres),
+        publication_year=fake.year(),
+    )
+    books.append(book)
+
+session.add_all(books)
 
 session.commit()

@@ -1,2 +1,4 @@
 .venv/
 upcase_booklist_app/practice.py
+extra.py
+upcase_booklist_app/fake_book_data.py

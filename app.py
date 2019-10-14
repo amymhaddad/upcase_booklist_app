@@ -1,5 +1,8 @@
-from flask import Flask, render_template, url_for
-from upcase_booklist_app.data.books import books
+from flask import Flask, render_template, request
+
+from upcase_booklist_app.database import db_session
+from upcase_booklist_app.models.book import Book
+
 from upcase_booklist_app.data.categories import categories
 from upcase_booklist_app.data.author import authors as authors_data
 from upcase_booklist_app.data.users import users as users_info
@@ -14,9 +17,25 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/books")
+@app.route("/books", methods=["GET", "POST"])
 def book_list():
     """Show the list of books"""
+
+    if request.method == "POST":
+        user_genre = request.form["genre"]
+        books = db_session.query(Book).filter(Book.genre == user_genre)
+
+    elif request.method == "GET" and request.args:
+        if request.args.get("page"):
+            limit_books = request.args.get("page")
+            books = db_session.query(Book).limit(10).offset(limit_books)
+
+        elif request.args.get("sort"):
+            sort_by = request.args.get("sort")
+            books = db_session.query(Book).order_by(sort_by).all()
+    else:
+        books = db_session.query(Book).limit(10)
+
     return render_template("books.html", books=books)
 
 
@@ -24,7 +43,9 @@ def book_list():
 def book(book_id):
     """Show details for a specific book."""
 
-    return render_template("book.html", book=books[book_id])
+    book = db_session.query(Book).filter(Book.id == book_id).one()
+
+    return render_template("book.html", book=book)
 
 
 @app.route("/authors")

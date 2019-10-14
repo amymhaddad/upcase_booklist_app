@@ -65,38 +65,97 @@
 }
 
 /*books.html */ 
-.books {
+
+.books-container {
     display: flex;
+    flex-direction: column;
     border-bottom: 1px solid black;
+    padding-bottom: 8px;
+    padding-top: 8px
 }
 
-.book-details {
+.books {
+    display: flex;
+    flex-direction: column;
+}
+
+.books a{
+    color: #990E16;
+    text-decoration: none;
+}
+
+.books a:hover{
+    color: #990E16;
+    text-decoration: underline;
+}
+
+.user-selections {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-filter {
+    display: flex;
+    flex-direction: column;
+    max-width: 17%;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+.filter-button {
+    text-decoration: none;
+    color: gray;
+    font-size: 16px;
+    text-align: center;
+}
+
+.sort-books {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 18px;
+    padding-left: 50px
+}
+
+.sort-books a{
+    text-decoration: none;
+    color: navy;
+    padding-left: 10px;
+}
+
+/*book.html*/
+.single-book-box {
+    background-color: #ddd;
+    margin: 60px;
+    padding: 100px; 
+}
+
+.single-book-display {
+    display: flex;
+}
+
+.single-book-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.single-book-title {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-.book-detail-spacing {
-    padding-left: 2em;
-    padding:5px;
-}
-
-.book-title a{ 
-    color: #990E16;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.book-title a:hover{
-    color: #990E16;
-    text-decoration: underline;
-}
-
-.book-description {
+.book-summary-text {
     font-size: 16px;
+    color: black;
 }
 
+.single-book-title {
+    color: #990E16;
+}
 
 
 /* authors.html */
@@ -129,47 +188,6 @@
     padding-top: 10px;
     padding-left: 5px;
 } 
-
-
-
-/*single_book.html */
-
-.single-book {
-    display: flex;
-    background-color: #ddd;
-    margin: 60px;
-    padding: 100px;
-
-}
-
-.display-single-book-contents {
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding-left: 2em;
-    padding:5px;
-}
-
-.single-book-title {
-    color: #990E16;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.single-book-author {
-    font-size: 20px;
-    color: #990E16;
-}
-
-.single-book-summary {
-    font-size: 16px;
-}
-
-.space {
-    margin: 20px;
-}
 
 
 /* category */

@@ -21,9 +21,8 @@
         </div>
             
                
-        <div> 
+            <div> 
                 {% for author in authors %}      
-
                     <div class='author'>       
                         <div class='name'>
                             <a href="{{ url_for('author', author_id=author['author_id']) }}">{{ author['name'] }}
@@ -40,7 +39,7 @@
                     </div>
                     {% endfor %}
                 {% endfor %}
-        </div> 
+            </div> 
 
         <div class="footer"></div>
     </body>
