@@ -24,19 +24,27 @@ def index():
 def book_list():
     """Show the list of books"""
 
-    # book_query = db_session.query(Book).filter(Book.id >= 1).all()
-
     book_info = {}
     for id, title, summary, url in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
-        book_info[id] = [title, summary, url]
-
-        # book_info.append(id)
-        # book_info.append(title)
-        # book_info.append(summary)
-        # book_info.append(url)
+        book_info[id] = {}
+        book_info[id]['title'] = title
+        book_info[id]['summary'] = summary
+        book_info[id]['url'] = url
     
     return render_template("book.html", book=book_info)
 
+
+
+
+# books = {
+#     1: {
+#         "title": "Python Crash Course",
+#         "author": "Eric Matthes",
+#         "summary": "A hands-on introduction to programming with Python.",
+#         "date": "2016",
+#         "image": "/static/img/python_crash_course.jpeg",
+#         "category": "Python Fundamentals",
+#     },
 
     # return render_template("books.html", books=books)
 
