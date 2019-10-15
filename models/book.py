@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, Numeric, String, ForeignKey
 from sqlalchemy.orm import relationship
-from database import Base
+from upcase_booklist_app.database import Base
 
 
 class Book(Base):

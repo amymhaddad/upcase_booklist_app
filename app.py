@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for
 
 from upcase_booklist_app.database import db_session
+from upcase_booklist_app.models.book import Book
+
 # from upcase_booklist_app.data.books import books
 from upcase_booklist_app.data.categories import categories
 from upcase_booklist_app.data.author import authors as authors_data
@@ -18,12 +20,15 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/books", methods=('GET'))
+@app.route("/books")
 def book_list():
     """Show the list of books"""
 
-    book_query = db_session.query(Book).filter_by(Book.id)
-    return render_template("book.html", book=book_query.all())
+    book_query = db_session.query(Book).filter(Book.id >= 1).all()
+    return render_template("book.html", book=book_query)
+
+
+    our_user = session.query(User).filter_by(name='ed').first()
 
     # return render_template("books.html", books=books)
 
