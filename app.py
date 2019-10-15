@@ -24,11 +24,15 @@ def index():
 def book_list():
     """Show the list of books"""
 
-    book_query = db_session.query(Book).filter(Book.id >= 1).all()
-    return render_template("book.html", book=book_query)
+    # book_query = db_session.query(Book).filter(Book.id >= 1).all()
 
+    book_info = []
+    for id, title, summary, url in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
+        book_info.append(id)
+        book_info.append(title)
+    
+    return render_template("book.html", book=book_info)
 
-    our_user = session.query(User).filter_by(name='ed').first()
 
     # return render_template("books.html", books=books)
 

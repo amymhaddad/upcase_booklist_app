@@ -16,20 +16,7 @@
             <div class="header-items"><a href="{{ url_for('users') }}">Users</a></div>
         </nav>
 
-        <div>
-                <div class="single-book">
-    
-                    <!-- One parent -->
-                    <div class="single-book-image"><img src="{{ book['image'] }}" alt="{{ book['title'] }}"></div>
-                
-                    <!-- Second parent with book details -->
-                    <div class="display-single-book">
-                        <div class="space single-book-title">{{ book['title'] }}</div>
-                        <div class="space single-book-author"><br>By: {{ book['author'] }}</div>
-                        <div class="space single-book-summary text"><br>{{ book['summary'] }}</div>
-                    </div>
-                </div>
-            </div>
+       {{ book }}
         
         </body>
     </html>
