@@ -17,9 +17,19 @@
         </nav>
 
     <div>
-       
-       {{ id }}
+        <div class="single-book">
+            {{ book }}
+            <!-- {% for id, book_details in book.items() %}
+                {% if id == book_id %}
+                    {{ book_details['title'] }}
+                    {{ book_details['summary'] }}
+                    {{ book_details['image'] }}
+            {% endif %}
+            {% endfor %} -->
+           
     </div>
 
 </body>
 </html>
+
+

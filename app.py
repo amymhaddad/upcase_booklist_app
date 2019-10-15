@@ -39,15 +39,13 @@ def book(book_id):
 
     book = {}
     for id, title, summary, image in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
-        book[id] = {}
-        book[id]['title'] = title
-        book[id]['summary'] = summary
-        book[id]['image'] = image
+        if book_id == id:
+            book[id] = {}
+            book[id]['title'] = title
+            book[id]['summary'] = summary
+            book[id]['image'] = image
 
-        
-    return render_template("book.html", book=book, id=book_id)
-    # return render_template("book.html", book=books[book_id])
-
+    return render_template("book.html", book=book)
 
 @app.route("/authors")
 def authors():
