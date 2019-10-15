@@ -23,10 +23,8 @@
             {% for book_id, details in books.items() %}
            <div class="books">
 
-                <!-- One parent -->
                 <div class="book-image"><a href="{{ url_for('book', book_id=book_id) }}"><img src="{{ details['image'] }}" alt="{{ details['title'] }}"></a></div>
 
-                <!-- Second parent with 2 children -->
                 <div class="book-details">
                     <div class="book-detail-spacing book-title"><a href="{{ url_for('book', book_id=book_id) }}">{{ details['title'] }}</a></div>
                     <div class="book-detail-spacing book-description">{{ details['summary'] }}</div>

@@ -28,35 +28,25 @@ def book_list():
     for id, title, summary, url in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
         book_info[id] = {}
         book_info[id]['title'] = title
-        book_info[id]['summary'] = summary
-        book_info[id]['url'] = url
+        book_info[id]['image'] = url
     
-    return render_template("book.html", book=book_info)
-
-
-
-
-# books = {
-#     1: {
-#         "title": "Python Crash Course",
-#         "author": "Eric Matthes",
-#         "summary": "A hands-on introduction to programming with Python.",
-#         "date": "2016",
-#         "image": "/static/img/python_crash_course.jpeg",
-#         "category": "Python Fundamentals",
-#     },
-
-    # return render_template("books.html", books=books)
+    return render_template("books.html", books=book_info)
 
 
 @app.route("/books/<int:book_id>")
 def book(book_id):
     """Show details for a specific book."""
 
-    # book_query = session.query(Book).filter_by(Book.id)
-    # return render_template("book.html", book=book_query)
+    book = {}
+    for id, title, summary, image in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
+        book[id] = {}
+        book[id]['title'] = title
+        book[id]['summary'] = summary
+        book[id]['image'] = image
 
-    return render_template("book.html", book=books[book_id])
+        
+    return render_template("book.html", book=book, id=book_id)
+    # return render_template("book.html", book=books[book_id])
 
 
 @app.route("/authors")
