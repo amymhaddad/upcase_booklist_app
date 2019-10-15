@@ -26,10 +26,14 @@ def book_list():
 
     # book_query = db_session.query(Book).filter(Book.id >= 1).all()
 
-    book_info = []
+    book_info = {}
     for id, title, summary, url in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
-        book_info.append(id)
-        book_info.append(title)
+        book_info[id] = [title, summary, url]
+
+        # book_info.append(id)
+        # book_info.append(title)
+        # book_info.append(summary)
+        # book_info.append(url)
     
     return render_template("book.html", book=book_info)
 
