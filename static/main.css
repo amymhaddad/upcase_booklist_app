@@ -69,13 +69,43 @@
 .book-container {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid black;
+    padding-bottom: 8px;
+    padding-top: 8px
+
 }
 
-.book-images {
+.book-title {
+    color: #990E16; 
+    text-decoration: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.book-image {
+    color: #990E16; 
+    text-decoration: none;
+}
+
+
+
+
+/* .name a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #990E16;
+    font-weight: bold;
+    padding: 3px;
+    padding-left: 5px;
+  
+}
+
+.name a:hover {
+    text-decoration: underline;
+    color: #990E16;
+} */
+
 
 /* .books {
     display: flex;

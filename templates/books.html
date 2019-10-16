@@ -23,15 +23,19 @@
             {% for book in books %}
                 <div class="book-container">
 
-                    <div class="book-images">
-                        {{ book.title }}             
+                    <div class="book-title">
+                        <a href="{{ url_for('book', book_id=book.id) }}">
+                            <h2>{{ book.title }}</h2>   
+                        </a>
+
                     </div>
                     
-                    <div class="book-images">
+                    <div class="book-title">
                         {{ book.image_url }}
                     </div>
 
 
+                    </div>
                 </div>
                 {% endfor %}
                     
