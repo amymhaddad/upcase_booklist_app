@@ -24,13 +24,15 @@ def index():
 def book_list():
     """Show the list of books"""
 
-    book_info = {}
-    for id, title, summary, url in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
-        book_info[id] = {}
-        book_info[id]['title'] = title
-        book_info[id]['image'] = url
+    # book_info = {}
+    # for id, title, summary, url in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
+    #     book_info[id] = {}
+    #     book_info[id]['title'] = title
+    #     book_info[id]['image'] = url
+
+    books = db_session.query(Book)
     
-    return render_template("books.html", books=book_info)
+    return render_template("books.html", books=books.all())
 
 
 @app.route("/books/<int:book_id>")

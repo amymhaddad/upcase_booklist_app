@@ -19,22 +19,12 @@
             <h1 class="page-title">Books</h1>
         </div>  
   
-       <div>
-            {% for book_id, details in books.items() %}
-           <div class="books">
+            {% for book in books %}
+                {{ book.title }}
+            {% endfor %}
 
-                <div class="book-image"><a href="{{ url_for('book', book_id=book_id) }}"><img src="{{ details['image'] }}" alt="{{ details['title'] }}"></a></div>
-
-                <div class="book-details">
-                    <div class="book-detail-spacing book-title"><a href="{{ url_for('book', book_id=book_id) }}">{{ details['title'] }}</a></div>
-                    <div class="book-detail-spacing book-description">{{ details['summary'] }}</div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-        
-        <div class="footer"></div>
-
+               
+    
     </body>
 </html>
 
