@@ -66,7 +66,7 @@
 
 /*books.html */ 
 
-.book-container {
+.books-container {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid black;
@@ -78,7 +78,6 @@
 .books {
     display: flex;
     flex-direction: column;
-    
 }
 
 .books a{
@@ -91,94 +90,6 @@
     text-decoration: underline;
 }
 
-/* 
-.book-details { 
-    color: #990E16;
-    text-decoration: none;
-} */
-/* 
-.book-details a:hover{
-    color: #990E16;
-    text-decoration: underline;
-} */
-
-/* 
-
-.book-details a{
-    color: #990E16; 
-    text-decoration: none;
-    padding: 3px;
-    padding-left: 5px;  
-}
-
-.book-details a:hover {
-    text-decoration: underline;
-    color: #990E16; */
-
-/* .book-details {
-    color: #990E16; 
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.book-image {
-    color: #990E16; 
-    text-decoration: none;
-} */
-
-
-
-
-/* .name a {
-    text-decoration: none;
-    font-size: 25px;
-    color: #990E16;
-    font-weight: bold;
-    padding: 3px;
-    padding-left: 5px;
-  
-}
-
-.name a:hover {
-    text-decoration: underline;
-    color: #990E16;
-} */
-
-
-/* .books {
-    display: flex;
-    border-bottom: 1px solid black;
-}
-
-.book-details {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.book-detail-spacing {
-    padding-left: 2em;
-    padding:5px;
-}
-
-.book-title a{ 
-    color: #990E16;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.book-title a:hover{
-    color: #990E16;
-    text-decoration: underline;
-}
-
-.book-description {
-    font-size: 16px;
-}
- */
 
 
 /* authors.html */

@@ -24,14 +24,7 @@ def index():
 def book_list():
     """Show the list of books"""
 
-    # book_info = {}
-    # for id, title, summary, url in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
-    #     book_info[id] = {}
-    #     book_info[id]['title'] = title
-    #     book_info[id]['image'] = url
-
     books = db_session.query(Book)
-    
     return render_template("books.html", books=books.all())
 
 
@@ -39,15 +32,24 @@ def book_list():
 def book(book_id):
     """Show details for a specific book."""
 
-    book = {}
-    for id, title, summary, image in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
-        if book_id == id:
-            book[id] = {}
-            book[id]['title'] = title
-            book[id]['summary'] = summary
-            book[id]['image'] = image
+    single_book = None
+    for id in db_session.query(Book):
+        if Book.id == book_id:
+            single_book = Book.id
 
-    return render_template("book.html", book=book)
+    books = db_session.query(Book)
+
+ #HERE: if the book_id (from user input) matches what's in the DB, return the items from DB that matches the ID 
+ #    
+    # book = {}
+    # for id, title, summary, image in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
+    #     if book_id == id:
+    #         book[id] = {}
+    #         book[id]['title'] = title
+    #         book[id]['summary'] = summary
+    #         book[id]['image'] = image
+
+    return render_template("book.html", single_book=single_book, books=books)
 
 @app.route("/authors")
 def authors():
