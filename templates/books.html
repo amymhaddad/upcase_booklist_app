@@ -18,13 +18,25 @@
         <div>         
             <h1 class="page-title">Books</h1>
         </div>  
-  
-            {% for book in books %}
-                {{ book.title }}
-            {% endfor %}
 
-               
-    
+        <div> 
+            {% for book in books %}
+                <div class="book-container">
+
+                    <div class="book-images">
+                        {{ book.title }}             
+                    </div>
+                    
+                    <div class="book-images">
+                        {{ book.image_url }}
+                    </div>
+
+
+                </div>
+                {% endfor %}
+                    
+            
+            </div>
     </body>
 </html>
 

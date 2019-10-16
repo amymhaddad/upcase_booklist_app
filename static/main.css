@@ -65,7 +65,19 @@
 }
 
 /*books.html */ 
-.books {
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* .books {
     display: flex;
     border-bottom: 1px solid black;
 }
@@ -96,7 +108,7 @@
 .book-description {
     font-size: 16px;
 }
-
+ */
 
 
 /* authors.html */
