@@ -8,17 +8,13 @@ from upcase_booklist_app.data.categories import categories
 from upcase_booklist_app.data.author import authors as authors_data
 from upcase_booklist_app.data.users import users as users_info
 
-
-
 app = Flask(__name__)
-
 
 @app.route("/")
 @app.route("/index")
 def index():
     """Render the homepage"""
     return render_template("index.html")
-
 
 @app.route("/books")
 def book_list():
@@ -32,10 +28,10 @@ def book_list():
 def book(book_id):
     """Show details for a specific book."""
 
-    single_book = None
-    for id in db_session.query(Book):
-        if Book.id == book_id:
-            single_book = Book.id
+    # single_book = None
+    # for id in db_session.query(Book):
+    #     if Book.id == book_id:
+    #         single_book = Book.id
 
     books = db_session.query(Book)
 
@@ -49,7 +45,7 @@ def book(book_id):
     #         book[id]['summary'] = summary
     #         book[id]['image'] = image
 
-    return render_template("book.html", single_book=single_book, books=books)
+    return render_template("book.html", book_id=book_id, books=books)
 
 @app.route("/authors")
 def authors():

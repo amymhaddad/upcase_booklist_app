@@ -17,14 +17,14 @@
         </nav>
 
     <div>
-       
-            <!-- {% for book in books %}
-                {% if book.id == id %}
-                    {{ book.title }}
-                    {{ book. summary }}
-                    {{ book.image_url }}
-                {% endif %}
-           {% endfor %} -->
+        {% for book in books %}
+            {% if book.id == book_id %}
+                {{ book.title }}
+                {{ book. summary }}
+                {{ book.image_url }}
+            {% endif %}
+       {% endfor %} --
+
     </div>
 
 </body>
