@@ -3,18 +3,19 @@ from flask import Flask, render_template, url_for
 from upcase_booklist_app.database import db_session
 from upcase_booklist_app.models.book import Book
 
-# from upcase_booklist_app.data.books import books
 from upcase_booklist_app.data.categories import categories
 from upcase_booklist_app.data.author import authors as authors_data
 from upcase_booklist_app.data.users import users as users_info
 
 app = Flask(__name__)
 
+
 @app.route("/")
 @app.route("/index")
 def index():
     """Render the homepage"""
     return render_template("index.html")
+
 
 @app.route("/books")
 def book_list():
@@ -28,24 +29,10 @@ def book_list():
 def book(book_id):
     """Show details for a specific book."""
 
-    # single_book = None
-    # for id in db_session.query(Book):
-    #     if Book.id == book_id:
-    #         single_book = Book.id
-
     books = db_session.query(Book)
 
- #HERE: if the book_id (from user input) matches what's in the DB, return the items from DB that matches the ID 
- #    
-    # book = {}
-    # for id, title, summary, image in db_session.query(Book.id, Book.title, Book.summary, Book.image_url):
-    #     if book_id == id:
-    #         book[id] = {}
-    #         book[id]['title'] = title
-    #         book[id]['summary'] = summary
-    #         book[id]['image'] = image
-
     return render_template("book.html", book_id=book_id, books=books)
+
 
 @app.route("/authors")
 def authors():

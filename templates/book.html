@@ -17,29 +17,23 @@
         </nav>
 
     <div>
-        <div class="single-book-box">
         {% for book in books %}
-
-            <div class="single-book-display">
-
             {% if book.id == book_id %}
-                {{ book.image_url }}
-            
-            
-            <div class="single-book-details">
-                 {{ book.title }}
-                {{ book. summary }}
-                
-            </div>
-        </div>
-            {% endif %}
-        
-        </div>
-       {% endfor %}
-        
-        </div>
-    </div>
+            <div class="single-book-box">
+            <div class="single-book-display">     
 
+                <img src="{{ book.image_url }}">
+           
+            <div class="single-book-details">
+               <h2 class="single-book-title">{{ book.title }}</h2> 
+                <p class="book-summary-text">{{ book.summary }}</p>
+            </div>
+            
+            {% endif %}
+            </div>
+            </div>
+       {% endfor %}  
+     </div>
 </body>
 </html>
 
