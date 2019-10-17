@@ -72,7 +72,6 @@
     border-bottom: 1px solid black;
     padding-bottom: 8px;
     padding-top: 8px
-
 }
 
 .books {
@@ -88,6 +87,25 @@
 .books a:hover{
     color: #990E16;
     text-decoration: underline;
+}
+
+
+/*book.html*/
+.single-book-box {
+    background-color: #ddd;
+    margin: 60px;
+    padding: 100px;
+}
+
+.single-book-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.single-book-details {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -127,13 +145,7 @@
 
 /*single_book.html */
 
-.single-book {
-    display: flex;
-    background-color: #ddd;
-    margin: 60px;
-    padding: 100px;
 
-}
 
 .display-single-book-contents {
     padding-left: 20px;
