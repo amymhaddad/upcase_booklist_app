@@ -19,6 +19,31 @@
             <h1 class="page-title">Books</h1>
         </div>  
 
+        <div>
+            <div class="user-selections">
+           
+                <div class="user-filter">
+                    <label for="genre-select">Book Genre</label>
+                    <select name="genre">
+                        <option value="">--Please select a book genre --</option>
+                        <option value="picklist-value">Beginner</option>
+                        <option value="picklist-value">Intermediate</option>
+                        <option value="picklist-value">Advanced</option>
+                    </select>
+                    <button class="filter-button">Filter</button>
+                </div>
+
+                <div class="sort-books">
+                        <a href="">By title</a>
+                        <p> | </p>
+                        <br>
+                        <a href="">By newest</a>
+                </div>
+
+            </div>
+        </div>
+
+
         <div> 
             {% for book in books %}
                 <div class="books-container">
