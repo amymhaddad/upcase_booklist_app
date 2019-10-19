@@ -3,7 +3,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-
 from upcase_booklist_app.models.book import Book
 
 engine = create_engine(

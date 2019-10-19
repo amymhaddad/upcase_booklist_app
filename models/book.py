@@ -11,4 +11,4 @@ class Book(Base):
     title = Column(String(), nullable=False)
     summary = Column(String(), nullable=False)
     image_url = Column(String(), nullable=False)
-    # genre = Column(String(), nullable=False)
+    genre = Column(String(), nullable=False)
