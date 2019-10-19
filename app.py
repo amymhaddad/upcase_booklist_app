@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 
 from upcase_booklist_app.database import db_session
 from upcase_booklist_app.models.book import Book
@@ -17,12 +17,23 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/books")
+@app.route("/books", methods=['GET', 'POST'])
 def book_list():
     """Show the list of books"""
 
+    # format = request.args.get('format')
+    #need to determine what kind of request it is 
+
+
     books = db_session.query(Book)
-    return render_template("books.html", books=books.all())
+
+    genre = db_session.query(Book).filter(Book.genre)
+
+    return render_template("books.html", books=books.all(), genre=genre)
+
+
+# return render_template('greeting.html', say=request.form['say'], to=request.form['to'])
+
 
 
 @app.route("/books/<int:book_id>")
