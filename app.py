@@ -21,15 +21,22 @@ def index():
 def book_list():
     """Show the list of books"""
 
-    # format = request.args.get('format')
-    #need to determine what kind of request it is 
+    if request.method == 'POST':
+        user_genre = request.args.get('genre')
+        books = db_session.query(Book).filter(Book.genre == user_genre)
+
+    if request.method == 'GET':
+        books = db_session.query(Book)
+
+    return render_template("books.html", books=books.all())
 
 
-    books = db_session.query(Book)
 
-    genre = db_session.query(Book).filter(Book.genre)
+# Use request.args(‘key’, ‘’) to dynamically get the query parameters
+# request.args(‘key’, ‘’) matches the “name” in the html and “id” in html
+    
 
-    return render_template("books.html", books=books.all(), genre=genre)
+    
 
 
 # return render_template('greeting.html', say=request.form['say'], to=request.form['to'])

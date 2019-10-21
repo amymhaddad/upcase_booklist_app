@@ -22,35 +22,37 @@
         
 
         <div>
-            <form action="/books" method="post">
+            <form action="/books" method="POST">
                 <div>
                     <label for="genre">Book Genre</label>
                     <input name="genre" id="genre" value="">
                 </div>
 
-
                 <div>
                     <button>Filter</button>
                 </div>
+            
                 </form>
             </div>
 
 
 
         <div> 
-            {% for book in books %}
-                <div class="books-container">
+            <form action="/books" method="GET">
+                {% for book in books %}
+                    <div class="books-container">
 
-                    <div class="books">    
-                        <a href="{{ url_for('book', book_id=book.id) }}">
-                            <h1>{{ book.title }}</h1>   
-                        </a>
-        
-                        <a href="{{ url_for('book', book_id=book.id) }}">
-                            <img src="{{ book.image_url }}">
-                        </a>
-                    </div>
-                 
+                        <div class="books">    
+                            <a href="{{ url_for('book', book_id=book.id) }}">
+                                <h1>{{ book.title }}</h1>   
+                            </a>
+            
+                            <a href="{{ url_for('book', book_id=book.id) }}">
+                                <img src="{{ book.image_url }}">
+                            </a>
+                        </div>
+            
+                    </form>
                 </div>
                 {% endfor %}         
             </div>
