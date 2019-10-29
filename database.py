@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 from upcase_booklist_app.models.book import Book
+from upcase_booklist_app.models.author import Author
 
 engine = create_engine(
     "postgresql+psycopg2://postgres:postgres@localhost/curious_programmer",

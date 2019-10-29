@@ -17,29 +17,11 @@
         </nav>
     <body> 
 
-    
         <div>
-            <div class="container">
-                
+           <div class="container">
                 <div class="author-name">
-                    <h1>{{ author_object['name'] }}</h1>
-                    <p class="text">{{ author_object['bio'] }}</p>
-                </div>
-
-                <div class="author-book">
-                    {% for book in author_object['books'] %}
-
-                        <div class="book-image-author-page">
-                            <a href="{{ url_for('book', book_id=book['book_id']) }}">
-                                <img src="{{ book['image'] }}" alt="{{ book['title'] }}">
-                            </a>
-                        <div>
-                            <p class="space book-title">{{ book['title'] }}</p>
-                            <p class="space text">{{ book['summary'] }}</p>
-                        </div>  
-
-                    </div>  
-                {% endfor %}
+                    <h1>{{ author.display_name }}</h1>
+                    <p>{{ author.biography }}</p>      
                 </div>
             </div>
     </body>

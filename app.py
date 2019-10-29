@@ -2,9 +2,9 @@ from flask import Flask, render_template, request
 
 from upcase_booklist_app.database import db_session
 from upcase_booklist_app.models.book import Book
+from upcase_booklist_app.models.author import Author
 
 from upcase_booklist_app.data.categories import categories
-from upcase_booklist_app.data.author import authors as authors_data
 from upcase_booklist_app.data.users import users as users_info
 
 app = Flask(__name__)
@@ -48,10 +48,27 @@ def book(book_id):
     return render_template("book.html", book=book)
 
 
-@app.route("/authors")
+@app.route("/authors", methods=["GET", "POST"])
 def authors():
     """Show the list of authors and the books they've written"""
-    return render_template("authors.html", authors=authors_data)
+
+    if request.method == "POST":
+        single_author = request.form["last_name"]
+        authors = db_session.query(Author).filter(Author.last_name == single_author)
+
+    elif request.method == "GET" and request.args:
+        if request.args.get("page"):
+            limit_authors = request.args.get("page")
+            authors = db_session.query(Author).limit(10).offset(limit_authors)
+
+        elif request.args.get("sort"):
+            author_name = request.args.get("sort")
+            authors = db_session.query(Author).order_by(author_name).all()
+
+    else:
+        authors = db_session.query(Author).limit(10)
+
+    return render_template("authors.html", authors=authors)
 
 
 @app.route("/lists")
@@ -83,12 +100,9 @@ def category(category_id):
 def author(author_id):
     """Display a page about an author"""
 
-    author_object = None
-    for author in authors_data:
-        if author["author_id"] == author_id:
-            author_object = author
+    author = db_session.query(Author).filter(Author.id == author_id).one()
 
-    return render_template("author.html", author_object=author_object)
+    return render_template("author.html", author=author)
 
 
 @app.route("/users")

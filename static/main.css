@@ -74,11 +74,6 @@
     padding-top: 8px
 }
 
-.books {
-    display: flex;
-    flex-direction: column;
-}
-
 .books a{
     color: #990E16;
     text-decoration: none;
@@ -89,18 +84,9 @@
     text-decoration: underline;
 }
 
-.user-selections {
-    display: flex;
-    flex-direction: row;
-}
-
-.user-filter {
+.select-books {
     display: flex;
     flex-direction: column;
-    max-width: 17%;
-    font-size: 18px;
-    color: black;
-    font-weight: bold;
 }
 
 .filter-button {
@@ -113,16 +99,21 @@
 .sort-books {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     font-size: 18px;
-    padding-left: 50px
+    margin-right: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+ 
 }
 
 .sort-books a{
     text-decoration: none;
     color: navy;
-    padding-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
 }
+
 
 /*book.html*/
 .single-book-box {
@@ -159,6 +150,43 @@
 
 
 /* authors.html */
+
+/* New CSS for authors.html */
+.select-authors {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 20px;
+    color: black;
+}
+
+.sort-authors {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+    text-decoration: none;
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.sort-authors a {
+    text-decoration: none;
+    font-size: 25px;
+    color: navy;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.sort-authors a:hover {
+    text-decoration: underline;
+    color: navy
+}
+
+/* End new CSS authors.html */
+
+
+
+/* More authors.html css */
 .author {
     display: flex;
     flex-direction: column;

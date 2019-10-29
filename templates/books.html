@@ -20,33 +20,26 @@
         </div>  
 
         <div>
-            <form action="books" method="POST">
-                <select name="genre" id="genre" value="">
-                    <label for="genre">Book Genre</label>
-                    <option value=""></option>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                </select>
-                <button class="filter-button">Filter</button>
-            </form>
-        </div>
-        
-    
-        <div class="sort-books">
-            <a href="books?sort=title"><h3>By title | </h3>
-            <a href="books?sort=publication_year"><h3>By newest</h3>
-            </a>
-        </div>
-               
-
-        <div class="sort-books">
-            <div class="current">
-                <p>Current
+            <div class="select-books">
+                <form action="books" method="POST">
+                    <select name="genre" id="genre" value="">
+                        <label for="genre">Book Genre</label>
+                        <option value=""></option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                    <button class="filter-button">Filter</button>
+                </form>
+            
+                <div class="sort-books">
+                    <a href="books?sort=title">By title |  </a>
+                    <a href="books?sort=publication_year">By newest </a>
+                   
                     <a href="books?page=2">Page 2</a>
                     <a href="books?page=3">Page 3</a>
-                    <a href="books?page=4">Page 4</a>
-                </p>
+                    <a href="books?page=4">Page 4</a>   
+                </div>
             </div>
         </div>
     
@@ -63,10 +56,8 @@
                             <img src="{{ book.image_url }}">
                         </a>
                     </div>
-                
-            
-                    </div>
-                    {% endfor %}         
+                </div>
+                {% endfor %}         
             </div>
         </body>
     </html>
