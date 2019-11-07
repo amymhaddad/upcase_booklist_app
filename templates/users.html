@@ -22,23 +22,46 @@
         </div>
 
         <div>
-            {% for user in users %}
-                <div class="users">
-                    
-                    <div class="user-name"> 
-                        <a href="{{ url_for('user', id = user['id']) }}">
-                            <h3>{{ user['name'] }}</h3>
-                        </a>
-                    </div>
-
-                    <div class="basic-user-info">
-                        <p>{{ user['bio'] }}</p>
-                       
-                    </div>     
-                </div> 
-            {% endfor %}
+            <div class="filter-users">
+                <form action="users" method="POST"> 
+                    <select name="user_level" id="user_level" value="">
+                        <label for="user_level">Filter users by level:</label>
+                            <option value=""></option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                    </select>
+                    <button class="filter-button">Filter</button>
+                </form>
        
+            <div> 
+                <form action="/users" method="POST">
+                    <label for="name"><h3>Search by user's last name: 
+                        <input type="text" name="last_name" id="last_name" required>
+                    </label></h3>
+                </form>
+            </div>
+        
+            <div class="sort-users">
+                <a href="users?sort=last_name"><h3>Sort by lastname &ensp;|</a></h3>
+                <a href="users?page=1"><h3>&ensp;Page 1</a></h3>
+                <a href="users?page=2"><h3>&ensp; Page 2</a></h3>
+            </div>
+        </div> 
+    </div>
+        
+
+        <div>
+            {% for user in users %}
+            <div class="users-container">       
+                    <div class="user-name">
+                        <a href="{{ url_for('user', user_id=user.id) }}"><h1>{{ user.display_name }}</h1></a>
+                    </div>
+                    <p class="user-details">{{ user.biography }}</p>
+                </div>
+        {% endfor %}
         </div>
+        
         <div class="footer"></div>
     </body>
 </html>

@@ -23,31 +23,14 @@
 
         <div>
             <div class="container-user-name">
-                <div class="username">
-                {% for user_detail in user_object %}
-                    <h1>{{ user_detail['name'] }}</h1>
-                </div>
-
-                <div>     
-                    <ul class="basic-user-info">
-                        <li>{{ user_detail['bio'] }} My favorite category is {{ user_detail['favorite_category'] }}.</li>
-                        <li>Contact me: {{ user_detail['email'] }}</li>
-                    </ul>
-                </div>
-
-                <div class="book-image">
-                    {% for user_detail in user_object %}
-                        {% for book in user_detail['details'] %}
-                          <a href="{{ url_for('book', book_id=book['book_id']) }}">
-                            <img src="{{book['image']}}">
-                          </a>                         
-                    {% endfor %}
-                    {% endfor %}
-
-                </div>         
-                {% endfor %}
-                
+                <div class="user-details">
+                    <p><span class="category">Name: </span>{{ user.display_name }}</p>
+                    <p><span class="category">Bio: </span>{{ user.biography }}</p>
+                    <p><span class="category">Level: </span>{{ user.user_level }}</p>
+                    <p><span class="category">Email: </span>{{ user.email }}</p>
                 </div>
             </div>
+        </div>
+        
     </body>
 </html>

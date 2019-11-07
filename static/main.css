@@ -335,34 +335,60 @@
 
 /*users*/
 
-.users {
+.filter-users {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    padding-top: 8px;
+    line-height: .25px;
+}
+
+.sort-users {
+    display: flex;
+    flex-direction: row;
+}
+
+.sort-users a{ 
+    text-decoration: none;
+    font-size: 25px;
+    color: navy;
+    font-weight: bold;
+}
+
+.sort-users a:hover{
+    text-decoration: underline;
+    color: navy;
+}
+
+.users-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     border-bottom: 1px solid black;
     padding-bottom: 8px;
-    padding-top: 8px
+    padding-top: 8px;
+    line-height: .80px;
 }
 
 .user-name {
-    color: #990E16;
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 0px;
+    text-decoration: none;
+    color: #990E16; 
 }
 
-.user-name a {
-    color: #990E16; 
+.user-name a{
     text-decoration: none;
+    color: #990E16; 
 }
 
 .user-name a:hover {
-    color: #990E16; 
     text-decoration: underline;
+    color: #990E16; ;
 }
 
-.basic-user-info {
-    font-size: 16px;
+.user-details {
+    font-size: 18px;
 }
 
 
@@ -376,17 +402,8 @@
     flex-direction: column;
 }
 
-.book-image {
-    align-self: center;
-}
-
-.username {
-    color: #990E16; 
-}
-
-.basic-user-info {
-    list-style: none;
-    line-height: 1.75;
-    font-size: 18px;
-    font-size: 16;
+.category {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: .75;
 }

@@ -3,9 +3,9 @@ from flask import Flask, render_template, request
 from upcase_booklist_app.database import db_session
 from upcase_booklist_app.models.book import Book
 from upcase_booklist_app.models.author import Author
+from upcase_booklist_app.models.user import User
 
 from upcase_booklist_app.data.categories import categories
-from upcase_booklist_app.data.users import users as users_info
 
 app = Flask(__name__)
 
@@ -105,20 +105,41 @@ def author(author_id):
     return render_template("author.html", author=author)
 
 
-@app.route("/users")
+@app.route("/users", methods=["GET", "POST"])
 def users():
     """Show all of the users and basic user details"""
-    return render_template("users.html", users=users_info)
+
+    if request.method == "POST":
+        if request.form.get("user_level"):
+            programming_level = request.form["user_level"]
+            users = db_session.query(User).filter(User.user_level == programming_level)
+
+        elif request.form.get("last_name"):
+            user_last_name = request.form["last_name"]
+            users = db_session.query(User).filter(User.last_name == user_last_name)
+
+    elif request.method == "GET" and request.args:
+        if request.args.get("sort"):
+            sort_by = request.args.get("sort")
+            users = db_session.query(User).order_by(sort_by)
+
+        elif request.args.get("page"):
+            limit_users = request.args.get("page")
+            users = db_session.query(User).limit(10).offset(limit_users)
+
+    else:
+        users = db_session.query(User).limit(10)
+
+    return render_template("users.html", users=users)
 
 
-@app.route("/users/<int:id>")
-def user(id):
+@app.route("/users/<int:user_id>")
+def user(user_id):
     """Display user details"""
 
-    user_object = None
-    user_object = list(filter(lambda x: x["id"] == id, users_info))
+    user = db_session.query(User).filter(User.id == user_id).one()
 
-    return render_template("user.html", user_object=user_object)
+    return render_template("user.html", user=user)
 
 
 if __name__ == "__main__":
