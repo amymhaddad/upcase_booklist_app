@@ -13,3 +13,6 @@ class Book(Base):
     image_url = Column(String(), nullable=True)
     genre = Column(String(), nullable=False)
     publication_year = Column(Integer, nullable=False)
+
+    author_id = Column(Integer, ForeignKey("authors.id"))
+    author = relationship("Author", back_populates="books")

@@ -43,13 +43,16 @@
             </div>
         </div>
     
-
         <div> 
             {% for book in books %}
                 <div class="books-container">
                     <div class="books">    
                         <a href="{{ url_for('book', book_id=book.id) }}">
                             <h1>{{ book.title }}</h1>   
+                        </a>
+
+                        <a href=" {{ url_for('author', author_id=book.author_id) }}">
+                            <h3 class="single-book-author" >{{ book.author.display_name }}</h2>
                         </a>
                         
                         <a href="{{ url_for('book', book_id=book.id) }}">

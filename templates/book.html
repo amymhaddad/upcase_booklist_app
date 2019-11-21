@@ -18,11 +18,15 @@
 
     <div>
         <div class="single-book-box">
-                <div class="single-book-display">     
-                    <img src="{{ book.image_url }}">
+            <div class="single-book-display">     
+                <img src="{{ book.image_url }}">
+                
                 <div class="single-book-details">
-                    <h2 class="single-book-title">{{ book.title }}</h2> 
-                    <p class="book-summary-text">{{ book.summary }}</p>
+                    <h2>{{ book.title }}</h2> 
+                    <a class="single-book-author" href="{{ url_for('author', author_id=book.author_id) }}">
+                        <h3>{{ book.author.display_name }}</h3>
+                    </a>
+                    <p class="book-summary-text">{{ book.summary }}</p> 
                 </div>
         </div>
     </body>

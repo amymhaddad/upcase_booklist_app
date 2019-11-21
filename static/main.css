@@ -84,6 +84,19 @@
     text-decoration: underline;
 }
 
+.single-book-author {
+    font-style: italic;
+    color: #990E16;
+}
+
+.single-book-author a{
+    text-decoration: none;
+}
+
+.single-book-author a:hover {
+    text-decoration: underline;
+}
+
 .select-books {
     display: flex;
     flex-direction: column;
@@ -129,14 +142,8 @@
 .single-book-details {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin: 10px;
-}
-
-.single-book-title {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    color: #990E16;
 }
 
 .book-summary-text {
