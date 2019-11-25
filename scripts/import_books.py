@@ -2,8 +2,6 @@ from faker import Faker
 
 fake = Faker()
 
-# My original syntax: import random was getting overridden by the sqlalchemy import random below.
-# Two ways around this: make this first import statement an alias: import random as rdm OR use the snytax below and import the exact module you need
 from random import choice
 
 import sys

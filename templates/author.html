@@ -15,14 +15,23 @@
             <div class="header-items"><a href="{{ url_for('lists') }}">Lists</a></div>
             <div class="header-items"><a href="{{ url_for('users') }}">Users</a></div>
         </nav>
-    <body> 
-
-        <div>
-           <div class="container">
-                <div class="author-name">
-                    <h1>{{ author.display_name }}</h1>
-                    <p>{{ author.biography }}</p>      
-                </div>
+    
+    <div>
+        <div class="single-display container">
+            <div class="single-author-container author-name">
+                
+            <h1>{{ author.display_name }}</h1>
+            <p class="text">{{ author.biography }}</p>
+            
+            {% for book in author.books %}
+                <a href="{{ url_for('book', book_id = book.id) }}">
+                    <h2>{{ book.title }}</h2>
+                    <img src="{{ book.image_url }}">
+                </a>
+            {% endfor %}
             </div>
-    </body>
+        </div>
+    </div>
+    
+    </body>   
 </html>

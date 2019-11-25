@@ -66,7 +66,9 @@ def authors():
             authors = db_session.query(Author).order_by(author_name).all()
 
     else:
-        authors = db_session.query(Author).limit(10)
+        authors = (
+            db_session.query(Author).join(Book, Book.author_id == Author.id).limit(10)
+        )
 
     return render_template("authors.html", authors=authors)
 
@@ -100,7 +102,12 @@ def category(category_id):
 def author(author_id):
     """Display a page about an author"""
 
-    author = db_session.query(Author).filter(Author.id == author_id).one()
+    author = (
+        db_session.query(Author)
+        .join(Book, Book.author_id == Author.id)
+        .filter(Author.id == author_id)
+        .first()
+    )
 
     return render_template("author.html", author=author)
 
