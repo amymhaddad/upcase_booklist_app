@@ -17,6 +17,7 @@ Base = declarative_base(metadata=metadata)
 from upcase_booklist_app.models.book import Book
 from upcase_booklist_app.models.author import Author
 from upcase_booklist_app.models.user import User
+from upcase_booklist_app.models.category import Category
 
 engine = create_engine(
     "postgresql+psycopg2://postgres:postgres@localhost/curious_programmer",
