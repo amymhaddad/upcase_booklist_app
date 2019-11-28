@@ -73,14 +73,14 @@ def authors():
     return render_template("authors.html", authors=authors)
 
 
-@app.route("/lists")
-def lists():
+@app.route("/categories")
+def categories():
     """Organize authors and their books into categories"""
 
-    return render_template("lists.html", categories=categories)
+    return render_template("categories.html", categories=categories)
 
 
-@app.route("/lists/<int:category_id>")
+@app.route("/categories/<int:category_id>")
 def category(category_id):
     """Direct user to page about a specific category"""
 
