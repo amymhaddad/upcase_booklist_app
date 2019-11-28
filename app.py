@@ -4,6 +4,7 @@ from upcase_booklist_app.database import db_session
 from upcase_booklist_app.models.book import Book
 from upcase_booklist_app.models.author import Author
 from upcase_booklist_app.models.user import User
+from upcase_booklist_app.models.category import Category
 
 from upcase_booklist_app.data.categories import categories
 

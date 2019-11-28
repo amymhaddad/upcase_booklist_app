@@ -17,6 +17,7 @@ class Book(Base):
     author_id = Column(Integer, ForeignKey("authors.id"))
     author = relationship("Author", back_populates="books")
 
+    category_id = Column(Integer, ForeignKey("categories.id"))
     category = relationship("Category", back_populates="books")
 
    
