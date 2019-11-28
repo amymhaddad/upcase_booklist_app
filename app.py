@@ -4,6 +4,7 @@ from upcase_booklist_app.database import db_session
 from upcase_booklist_app.models.book import Book
 from upcase_booklist_app.models.author import Author
 from upcase_booklist_app.models.user import User
+from upcase_booklist_app.models.category import Category
 
 from upcase_booklist_app.data.categories import categories
 
@@ -73,14 +74,36 @@ def authors():
     return render_template("authors.html", authors=authors)
 
 
-@app.route("/lists")
-def lists():
+@app.route("/categories")
+def categories():
     """Organize authors and their books into categories"""
 
-    return render_template("lists.html", categories=categories)
+    q1_beginner = (
+        db_session.query(Category)
+        .filter(Category.category_name == "Beginner")
+        .limit(10)
+    )
+    q2_intermediate = (
+        db_session.query(Category)
+        .filter(Category.category_name == "Intermediate")
+        .limit(10)
+    )
+    q3_advanced = (
+        db_session.query(Category)
+        .filter(Category.category_name == "Advanced")
+        .limit(10)
+    )
+
+    categories = {
+        "Beginner": q1_beginner,
+        "Intermediate": q2_intermediate,
+        "Advanced": q3_advanced,
+    }
+
+    return render_template("categories.html", categories=categories)
 
 
-@app.route("/lists/<int:category_id>")
+@app.route("/categories/<int:category_id>")
 def category(category_id):
     """Direct user to page about a specific category"""
 
