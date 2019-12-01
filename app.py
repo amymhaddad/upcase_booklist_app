@@ -78,7 +78,19 @@ def authors():
 def categories():
     """Organize authors and their books into categories"""
 
-    categories = db_session.query
+#categories as a dictionary 
+    
+
+    q1_beginner = db_session.query(Category).filter(Category.category_name == "Beginner").all()
+    q2_intermediate = db_session.query(Category).filter(Category.category_name == "Intermediate").all()
+    q3_advanced = db_session.query(Category).filter(Category.category_name == "Advanced").all()
+
+    categories = {
+        'Beginner' : q1_beginner,
+        'Intermediate': q2_intermediate,
+        'Advanced': q3_advanced,
+    }
+        
 
     return render_template("categories.html", categories=categories)
 

@@ -13,6 +13,14 @@
            <div class="header-items"><a href="{{ url_for('users') }}">Users</a> </div>
        </nav>
 
-       
+    <div>
+
+       {% for category in categories['Beginner'] %}
+            {{ category.category_name }}
+            {% for book in category.books %}
+                {{ book.title }}
+       {% endfor %}
+       {% endfor %}
+    </div>
     </body>
 </html>
