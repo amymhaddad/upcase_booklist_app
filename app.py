@@ -78,6 +78,8 @@ def authors():
 def categories():
     """Organize authors and their books into categories"""
 
+    categories = db_session.query
+
     return render_template("categories.html", categories=categories)
 
 
