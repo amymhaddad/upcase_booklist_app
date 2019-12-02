@@ -14,13 +14,9 @@
        </nav>
 
     <div>
-
-       {% for category in categories['Beginner'] %}
-            {{ category.category_name }}
-            {% for book in category.books %}
-                {{ book.title }}
-       {% endfor %}
-       {% endfor %}
+            {{ categories['Beginner'][0].books}}
+           
+     
     </div>
     </body>
 </html>
