@@ -13,10 +13,42 @@
            <div class="header-items"><a href="{{ url_for('users') }}">Users</a> </div>
        </nav>
 
-    <div>
-            {{ categories['Beginner'][0].books}}
-           
-     
+    <div>  
+        <div class="categories-container">
+            <h1>Beginner</h1>
+            {% for category in categories['Beginner'] %}
+                {% for book in category.books %}
+                <div class="individual-category">
+                    <a href="{{ url_for('book', book_id = book.id) }}" class="book-category">
+                        {{ book.title }}
+                    </a>
+            {% endfor %}
+            {% endfor %}
+            </div>
+
+            <h1>Intermediate</h1>
+            {% for category in categories['Intermediate'] %}
+                {% for book in category.books %}
+                <div class="individual-category">
+                    <a href="{{ url_for('book', book_id = book.id) }}" class="book-category">
+                        {{ book.title }}
+                    </a>
+            {% endfor %}
+            {% endfor %}
+            </div>
+
+            <h1>Advanced</h1>
+            {% for category in categories['Advanced'] %}
+                {% for book in category.books %}
+                <div class="individual-category">
+                    <a href="{{ url_for('book', book_id = book.id) }}" class="book-category">
+                        {{ book.title }}
+                    </a>
+            {% endfor %}
+            {% endfor %}
+            </div>
+
+        </div>
     </div>
     </body>
 </html>
