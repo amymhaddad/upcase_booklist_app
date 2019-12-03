@@ -8,7 +8,7 @@ books = {
         "category": "Python Fundamentals",
     },
     2: {
-        "title": "Grokking Algorithms",
+        "title": "Grokking Algorithms", 
         "author": "Aditya Bhargava",
         "summary": "Learn how to apply common algorithms to practical programming problems.",
         "date": "2016",

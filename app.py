@@ -74,31 +74,46 @@ def authors():
     return render_template("authors.html", authors=authors)
 
 
-@app.route("/categories")
+@app.route("/categories", methods=["GET", "POST"])
 def categories():
-    """Organize authors and their books into categories"""
+    """Organize books into categories"""
 
-    q1_beginner = (
-        db_session.query(Category)
-        .filter(Category.category_name == "Beginner")
-        .limit(10)
-    )
-    q2_intermediate = (
-        db_session.query(Category)
-        .filter(Category.category_name == "Intermediate")
-        .limit(10)
-    )
-    q3_advanced = (
-        db_session.query(Category)
-        .filter(Category.category_name == "Advanced")
-        .limit(10)
-    )
+    if request.method == "POST":
+        category = request.form["category"]
+        categories = (
+            db_session.query(Book)
+            .join(Category, Book.category_id == Category.id)
+            .filter(Category.category_name == category)
+            .order_by(Book.title)
+            .all()
+        )
+    elif request.method == "GET" and request.args:
+        if request.args.get("category_level"):
+            category = request.args.get("category_level")
+            categories = (
+                db_session.query(Book)
+                .join(Category, Book.category_id == Category.id)
+                .filter(Category.category_name == category)
+                .order_by(Book.title)
+                .all()
+            )
 
-    categories = {
-        "Beginner": q1_beginner,
-        "Intermediate": q2_intermediate,
-        "Advanced": q3_advanced,
-    }
+        elif request.args.get("sort"):
+            level = request.args.get("sort")
+            categories = (
+                db_session.query(Book)
+                .join(Category, Book.category_id == Category.id)
+                .order_by(Book.title)
+                .all()
+            )
+
+    else:
+        categories = (
+            db_session.query(Book)
+            .join(Category, Book.category_id == Category.id)
+            .order_by(Category.category_name)
+            .all()
+        )
 
     return render_template("categories.html", categories=categories)
 
@@ -107,18 +122,10 @@ def categories():
 def category(category_id):
     """Direct user to page about a specific category"""
 
-    books_associated_with_selected_category = None
-    category_title = None
-    for category in categories:
-        if category["category_id"] == category_id:
-            books_associated_with_selected_category = category["books"]
-            category_title = category["category"]
+    category = (
+        db_session.query(Category).join(Book, Category.id == Book.category_id).filter(Category.id == category_id).first())
 
-    return render_template(
-        "category.html",
-        category=books_associated_with_selected_category,
-        category_title=category_title,
-    )
+    return render_template("category.html", category=category)
 
 
 @app.route("/authors/<int:author_id>")

@@ -14,41 +14,41 @@
        </nav>
 
     <div>  
-        <div class="categories-container">
-            <h1>Beginner</h1>
-            {% for category in categories['Beginner'] %}
-                {% for book in category.books %}
-                <div class="individual-category">
-                    <a href="{{ url_for('book', book_id = book.id) }}" class="book-category">
-                        {{ book.title }}
-                    </a>
-            {% endfor %}
-            {% endfor %}
-            </div>
+        <h1>Categories of Books</h1>
+        
+        <div> 
+            <div class="search-categories">
+                <div class="sort-categories"> 
+                    <form action="/categories" method="POST">    
+                        <label for="name">Search by category: </label>    
+                        <input type="text" name="category" id="category" required>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            
 
-            <h1>Intermediate</h1>
-            {% for category in categories['Intermediate'] %}
-                {% for book in category.books %}
-                <div class="individual-category">
-                    <a href="{{ url_for('book', book_id = book.id) }}" class="book-category">
-                        {{ book.title }}
-                    </a>
-            {% endfor %}
-            {% endfor %}
+            <div>  
+                <div class="filter-categories">
+                    <a href="categories?category_level=Beginner">Beginner&nbsp&nbsp</a>
+                    <a href="categories?category_level=Intermediate">Intermediate&nbsp&nbsp</a>
+                    <a href="categories?category_level=Advanced">Advanced&nbsp&nbsp</a>
+                    <a href="categories?sort=category_level">&nbsp&nbspSort all books</a>
+                </div>
             </div>
-
-            <h1>Advanced</h1>
-            {% for category in categories['Advanced'] %}
-                {% for book in category.books %}
-                <div class="individual-category">
-                    <a href="{{ url_for('book', book_id = book.id) }}" class="book-category">
-                        {{ book.title }}
-                    </a>
-            {% endfor %}
-            {% endfor %}
             </div>
-
+        
+        <div>
+            <div class="categories-container">
+                {% for books in categories %}
+                <div class="individual-category">
+                    <a href="{{ url_for('category', category_id = books.category_id) }}" class="book-category">
+                            {{ books.title }}     
+                    </a>               
+                    
+                    {% endfor %}
+                </div>
+            </div> 
         </div>
-    </div>
     </body>
+    <div class="footer"></div>
 </html>
