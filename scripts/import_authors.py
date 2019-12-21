@@ -12,9 +12,11 @@ authors = []
 
 for _ in range(100):
     author = Author(
-        first_name = fake.first_name(),
-        last_name = fake.last_name(),
-        biography = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None),
+        first_name=fake.first_name(),
+        last_name=fake.last_name(),
+        biography=fake.paragraph(
+            nb_sentences=3, variable_nb_sentences=True, ext_word_list=None
+        ),
     )
     authors.append(author)
 

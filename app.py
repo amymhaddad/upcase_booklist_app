@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 
 from upcase_booklist_app.database import db_session
 from upcase_booklist_app.models.book import Book
@@ -54,17 +54,30 @@ def authors():
     """Show the list of authors and the books they've written"""
 
     if request.method == "POST":
-        single_author = request.form["last_name"]
-        authors = db_session.query(Author).filter(Author.last_name == single_author)
+        last_name = request.form["last_name"]
+        authors = (
+            db_session.query(Author)
+            .join(Book, Author.id == Book.author_id)
+            .filter(Author.last_name == last_name)
+        )
+        if last_name not in authors:
+            abort(404)
 
     elif request.method == "GET" and request.args:
-        if request.args.get("page"):
-            limit_authors = request.args.get("page")
-            authors = db_session.query(Author).limit(10).offset(limit_authors)
-
-        elif request.args.get("sort"):
-            author_name = request.args.get("sort")
-            authors = db_session.query(Author).order_by(author_name).all()
+        if request.args.get("author_firstname"):
+            first_name = request.args.get("first_name")
+            authors = (
+                db_session.query(Author)
+                .join(Book, Author.id == Book.author_id)
+                .order_by(Author.first_name)
+            )
+        else:
+            last_name = request.args.get("last_name")
+            authors = (
+                db_session.query(Author)
+                .join(Book, Author.id == Book.author_id)
+                .order_by(Author.last_name)
+            )
 
     else:
         authors = (
@@ -123,7 +136,11 @@ def category(category_id):
     """Direct user to page about a specific category"""
 
     category = (
-        db_session.query(Category).join(Book, Category.id == Book.category_id).filter(Category.id == category_id).first())
+        db_session.query(Category)
+        .join(Book, Category.id == Book.category_id)
+        .filter(Category.id == category_id)
+        .first()
+    )
 
     return render_template("category.html", category=category)
 

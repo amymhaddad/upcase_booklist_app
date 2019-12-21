@@ -19,22 +19,22 @@
         <div>
             <h1 class="page-title">Authors</h1>
         </div>
-            
+        <div> 
+            <form method="POST">
+                <p>Enter an author's lastname: 
+                    <input type="text" name="last_name" size="20">
+                    <button type="submit">Search</button>
+                </p>
+            </form>
+        </div>
+        
         <div>
-            <div class="select-authors">
-                <form action="/authors" method="POST">
-                    <label for="name">Search by author's last name: </label>
-                    <input type="text" name="last_name" id="last_name" required>
-                </form>
+            <form method="GET">
+                <a href="/authors?author_firstname=first_name">Sort by first name</a>
+                <a href="/authors?author_lastname=last_name">Sort by lastname</a>
+            </form>
 
-                <div class="sort-authors">
-                        <a href="authors?sort=last_name">Sort by name | </a>  
-                    
-                        <a href="authors?page=1"> Page 1</a>
-                        <a href="authors?page=2"> Page 2</a>    
-                </div> 
-            </div>
-       
+        </div>
     
     
             <div> 

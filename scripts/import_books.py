@@ -8,7 +8,7 @@ import sys
 from upcase_booklist_app.database import Base, db_session
 from upcase_booklist_app.models.book import Book
 from upcase_booklist_app.models.author import Author
-from upcase_booklist_app.models.category import Category 
+from upcase_booklist_app.models.category import Category
 from sqlalchemy.sql.functions import random
 
 session = db_session()
@@ -30,7 +30,7 @@ books = []
 for _ in range(100):
 
     author = session.query(Author).order_by(random()).first()
-    #add categories to import_books that way I get a category value
+    # add categories to import_books that way I get a category value
     category = session.query(Category).order_by(random()).first()
 
     book = Book(

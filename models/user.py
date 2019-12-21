@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, DateTime 
+from sqlalchemy import Column, Integer, String, DateTime
 from upcase_booklist_app.database import Base
+
 
 class User(Base):
 

@@ -15,9 +15,7 @@ class Book(Base):
     publication_year = Column(Integer, nullable=False)
 
     author_id = Column(Integer, ForeignKey("authors.id"))
-    #back_populates = "books" is called this b/c books is the method that's defined in the Author() class --> books = relationship("Book", back_populates="author")
     author = relationship("Author", back_populates="books")
 
     category_id = Column(Integer, ForeignKey("categories.id"))
     category = relationship("Category", back_populates="books")
-    
